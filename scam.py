@@ -7,8 +7,9 @@ import json
 chars = string.ascii_letters + string.digits + '!@#$%^&*()'
 random.seed = (os.urandom(1024))
 
-url = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSfjpZ8P3uPqTc6-8HjBalPpSlIO9jWx83hQeHrp8eZwW7CswA/formResponse'
-#input the request-url from the dev console in headers
+url = ''
+#input url into url variable
+#input the request-url from the dev console in headers, in place of 'username-entry' & 'password-entry'
 
 names = json.loads(open('namesfull.json').read())
 email_list = ["@icloud.com", "@outlook.com", "@yahoo.com", "@gmail.com", "@hotmail.com"]
@@ -20,8 +21,8 @@ for name in names:
 	password = ''.join(random.choice(chars) for i in range(1,9))
 
 	requests.post(url, allow_redirects=False, data={
-		'entry.165056968': username,
-		'entry.912993514': password
+		'username-entry': username,
+		'password-entry': password
         #where password and username data is stored from dev console
 	})
 
